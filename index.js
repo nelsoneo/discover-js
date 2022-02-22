@@ -1,71 +1,110 @@
 /*
 
-    * Create a construction Array
+    * Operadores de comparação
 
 */
 
-// let myArray = new Array('a', 'b', 'c');  //new array with parametres
+let one = 1
+let two = 2
 
-// let myArray = new Array(10);  //new array with length
-// console.log(myArray)
+// == operador de igualda true / false
+
+// console.log(one == 1)
+
+// != operador de desilgualda true / false
+
+// console.log(one != 2)
+
+// === estrictamente igual
+
+// console.log(one === '1')
+// console.log(one === 1)
+
+
+// !== estrictamente diferente de
+
+// console.log(two !== '2')
+// console.log(two !== 2)
+
 
 /*
 
-    * Count elements an Array
+    * Operadores Logic
 
 */
 
-// console.log(['a','b', 'c', 'd'].length)
+// let pao = false
+// let queijo = false
 
-// console.log(['a','b', {type: "array"}, function(){return 'ola array'}][3]())
+// And &&
+
+// console.log(pao && queijo)
+
+// Or ||
+
+// console.log(pao || queijo)
+
+// Not !
+
+// console.log(!queijo)
 
 /*
 
-    * Tranform a string letter in elements an array
+    * Operadores Condicional ou Ternario
 
+    condition  ? sim : não
 */
 
-// let phrase = 'Manipulations'
-// let myArray = String(phrase).split('')
-// console.log(myArray)   // Or
-// console.log(Array.from(phrase))
+// let pao = true
+// let queijo = false
+
+// const cafeManha = pao || queijo ? 'Cafe bom' : 'Cafe Ruim'
+
+// console.log(cafeManha)
+
 
 /*
 
-    * Manipulando Array
+    * Operadores Falsy ou Truthy
 
+    
 */
 
-let myArray = ["banana", "maça", "melon"];
 
-/* adicionar um item no fim */
+/* Falsy                                Trusthy
 
-// myArray.push("abacaxi");
+false                                   true
+0                                       {}
+-0                                      []
+""                                      3.23
+nul                                     "0"
+undefined                               "false"
+Nan                                     Infinity
+                                         -Infinity   
+*/                                          
 
-/* adicionar um item no inicio */
+// console.log(Infinity ? 'verdadero' : 'falso')
 
-// myArray.unshift("pera");
 
-/* remover do fim */
 
-// myArray.pop();
+/*
 
-/* remover do inicio */
+    * Operadores precedence
 
-// myArray.shift();
+    
+* gruoping                  ()
+* negação e incremento      ! ++ --
+* multiplicação e divisão   * /
+* adição e subtração        + - 
+* relacional                < <=  > >=
+* igualdade                 == != === !==
+* AND                       &&
+* Or                        ||
+* Not                       !
+* condicional               ?:
+assignment                  = += -+ *+ /+  
 
-/* pegar somente alguns elementos do array */
 
-// console.log(myArray.slice(0, 2));
 
-/* remover 1 ou mais items em qualquer posição do array */
 
-// console.log(myArray.splice(0, 1));
-
-/* encontrar a posição de un elemento no array */
-
-let indexArray = myArray.indexOf('melon')
-console.log(myArray.splice(indexArray, 1));
-// console.log(myArray.findIndex(item => item.search('maça')));
-
-console.log(indexArray, myArray);
+*/
