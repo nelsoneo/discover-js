@@ -1,110 +1,45 @@
-/*
-
-    * Operadores de comparação
-
-*/
-
-let one = 1
-let two = 2
-
-// == operador de igualda true / false
-
-// console.log(one == 1)
-
-// != operador de desilgualda true / false
-
-// console.log(one != 2)
-
-// === estrictamente igual
-
-// console.log(one === '1')
-// console.log(one === 1)
-
-
-// !== estrictamente diferente de
-
-// console.log(two !== '2')
-// console.log(two !== 2)
-
 
 /*
 
-    * Operadores Logic
-
+              1
+            /   \  
+           2     3  
+          / \
+         4   5  
 */
 
-// let pao = false
-// let queijo = false
+class Node{
+    constructor(item){
+        this.data = item;
+        this.left = this.rigth = null;
+    }
+}
 
-// And &&
+function heightNodeTree(node){
+    if(node == null){
+        return -1;
+    } else {
+        let rigthNode = heightNodeTree(node.rigth);
+        let leftNode = heightNodeTree(node.left);
 
-// console.log(pao && queijo)
+        if(leftNode > rigthNode) {
+            return leftNode + 1;
+        } else {
+            return rigthNode + 1;
+        }
+    }
+   
+}
 
-// Or ||
+let root;
+root = new Node('A');
+root.left = new Node('B');
+root.rigth = new Node('C');
+root.left.left = new Node('D');
+root.left.rigth = new Node('E');
+root.rigth.rigth = new Node('F');
+// root.rigth.rigth.rigth = new Node('G')
 
-// console.log(pao || queijo)
+console.log(typeof root)
 
-// Not !
-
-// console.log(!queijo)
-
-/*
-
-    * Operadores Condicional ou Ternario
-
-    condition  ? sim : não
-*/
-
-// let pao = true
-// let queijo = false
-
-// const cafeManha = pao || queijo ? 'Cafe bom' : 'Cafe Ruim'
-
-// console.log(cafeManha)
-
-
-/*
-
-    * Operadores Falsy ou Truthy
-
-    
-*/
-
-
-/* Falsy                                Trusthy
-
-false                                   true
-0                                       {}
--0                                      []
-""                                      3.23
-nul                                     "0"
-undefined                               "false"
-Nan                                     Infinity
-                                         -Infinity   
-*/                                          
-
-// console.log(Infinity ? 'verdadero' : 'falso')
-
-
-
-/*
-
-    * Operadores precedence
-
-    
-* gruoping                  ()
-* negação e incremento      ! ++ --
-* multiplicação e divisão   * /
-* adição e subtração        + - 
-* relacional                < <=  > >=
-* igualdade                 == != === !==
-* AND                       &&
-* Or                        ||
-* Not                       !
-* condicional               ?:
-assignment                  = += -+ *+ /+  
-
-
-
-
-*/
+console.log('Height of tree is : '+ heightNodeTree(root));
