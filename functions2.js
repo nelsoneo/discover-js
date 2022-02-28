@@ -18,7 +18,7 @@
 //     console.log('Nelson')
 // }
 
-//nota:  Quando fazer uma function como uma expresão, ela não sofre hoisting, 
+//scoreX:  Quando fazer uma function como uma expresão, ela não sofre hoisting, 
 //como é o caso das functions anonimous, arrow.
 
 
