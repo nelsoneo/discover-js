@@ -1,67 +1,36 @@
 /* Desafios */
 
-/* Exercicies #2
+/* Exercicies #3
 
-Crie um objeto que possuirá 2 propiedades, ambas do tipo array:
+Crie uma função que receba uma string em celsius ou fahrenheit a faça a transformação de uma unidade
+para outra.
 
-* incomes: []
-* expenses: [] 
+C = (F - 32) * 5/9
 
-Agora, cire uma função que irá calcular o total de incomes
-e de pespesas e irá mostrar uma mensagem se a familia está com saldo positivo ou negativo,
-seguido do valor do saldo.
+F = C * 9/5 + 32
 
 */
 
-//variante #1 using reduc()
+function changeTemperature(grade) {
+  const celcius = !grade.toLowerCase().includes("f");
+  const fahrenheit = !grade.toLowerCase().includes("c");
+  const valor = grade.slice(0, grade.length - 1);
 
-function calculateBalance(person){
- 
-    let incomes = person.incomes.reduce((previusValue, currenteValue) => previusValue += currenteValue);
-    if( incomes == 0){
-        return 'O valor da incomes é 0'
-    } else {
-        let expenses = person.expenses.reduce((previusValue, currenteValue) => previusValue += currenteValue);
-        
-        let finalCach = incomes - expenses;
-        if (finalCach >= 0){
-            return 'Saldo Positivo com valor = '+ finalCach.toFixed(2);
-        } else {
-            return 'Saldo Negativo com valor = ' + finalCach.toFixed(2);
-        }
-    }
+  if (celcius && fahrenheit) {
+    throw new Error("the letter information not match with celcius or fahrenheit");
+  } else {
+      if (celcius){
+          
+          return 'valor em celcius é : ' + valor * 9/5 + 32;
+      }
+      return 'valor em fahrenheit é : ' + (valor - 32) + 5/9;
+  }
 }
 
-//variante #2 using function auxiliar
-
-function sumTotal(array) {
-    let total = 0;
-
-    for (const iterator of array) {
-        total += iterator;
-    }
-    return total;
+try {
+    changeTemperature("300a")
+} catch (error) {
+    console.log(error.message)
 }
 
-function calculateBanlaces(person){
-    const calculateIncomes = sumTotal(person.incomes);
-    const calculateExpenses = sumTotal(person.expenses);
 
-    let valorTotal = calculateIncomes - calculateExpenses;
-    let balanceText = 'Negativo';
-
-    if(valorTotal >= 0) {
-        balanceText = 'Positivo'; 
-    }
-    return `Seu Saldo é ${balanceText} : R$ ${valorTotal.toFixed(2)}`;
-}
-
-//----------------------------------------------------------
-
-let person = {
-    incomes: [500.50, 700.55],
-    expenses: [100.60, 200.20, 100.14, 100.96, 500.36]
-}
-
-// console.log(calculateBalance(person))
-console.log(calculateBanlaces(person))
